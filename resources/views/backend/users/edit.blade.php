@@ -20,8 +20,9 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    <form method="POST" action="{{ route('users.store') }}" accept-charset="UTF-8" id="users">
+                    <form method="POST" action="{{ route('users.update', 1) }}" accept-charset="UTF-8" id="users">
                         {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
                             <!-- Username Field -->
                             <div class="col-sm-6">
@@ -70,8 +71,8 @@
                         <div class="form-group">
                             <!-- Image Field -->
                             <div class="col-sm-6">
-                                <label for="email">Image:</label>
-                                <input class="form-control" name="email" type="file" id="email" onchange="viewImg(this)">
+                                <label for="image">Image:</label>
+                                <input class="form-control" name="image" type="file" id="image" onchange="viewImg(this)">
                                 <br>
                                 <p><img id="avartar-img-show" src="{{ asset('storage/avatars/avatar.png') }}" alt="avatar" class="img-responsive" width="200px" height="auto"></p>
                             </div>

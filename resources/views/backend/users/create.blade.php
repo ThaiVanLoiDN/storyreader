@@ -70,8 +70,8 @@
                         <div class="form-group">
                             <!-- Image Field -->
                             <div class="col-sm-6">
-                                <label for="email">Image:</label>
-                                <input class="form-control" name="email" type="file" id="email" onchange="viewImg(this)">
+                                <label for="image">Image:</label>
+                                <input class="form-control" name="image" type="file" id="image" onchange="viewImg(this)">
                                 <br>
                                 <p><img id="avartar-img-show" src="{{ asset('storage/avatars/avatar.png') }}" alt="avatar" class="img-responsive" width="200px" height="auto"></p>
                             </div>
