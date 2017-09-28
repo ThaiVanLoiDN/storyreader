@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::group(['namespace' => 'FrontEnd'], function(){
+	Route::get('/', 'HomeController@index')->name('frontend.home.index');
+	Route::get('{slug}-{id}', 'CategoryController@show')->name('frontend.category.show');
+	Route::get('{slug}-{id}.html', 'StoryController@show')->name('frontend.story.show');
+});
+
+Route::group(['namespace' => 'BackEnd', 'prefix' => 'admin'], function(){
+	Route::get('/', 'HomeController@index')->name('home.index');
+	Route::resource('users', 'UserController');
+	Route::resource('stories', 'StoryController');
+	Route::resource('categories', 'CategoryController');
 });
