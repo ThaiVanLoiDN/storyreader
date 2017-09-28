@@ -1,5 +1,7 @@
 # Story Reader
 
+Install composer: https://getcomposer.org/
+
 composer install
 
 composer update (when change composer.json)
