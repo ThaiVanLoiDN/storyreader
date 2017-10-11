@@ -32,21 +32,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @if(0)
+                            @if(count($categories) === 0)
                                 <td colspan="2">List of categories is empty!</td>
                             @else
-                                @for ($i = 0; $i < 10; $i++)
+                                @foreach ($categories as $key => $category)
                                 <tr>
-                                    <td>Lorem Ipsum</td>
+                                    <td>{{ $category->name }}</td>
                                     <td class="text-center">
-                                        <form method="POST" action="{{ route('categories.destroy', 1) }}" accept-charset="UTF-8">
+                                        <form method="POST" action="{{ route('categories.destroy', $category->id) }}" accept-charset="UTF-8">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <div class='btn-group'>
-                                                <a href="{{ route('categories.show', 1) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('categories.show', $category->id) }}" class='btn btn-default btn-xs'>
                                                     <i class="glyphicon glyphicon-eye-open"></i>
                                                 </a>
-                                                <a href="{{ route('categories.edit', 1) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('categories.edit', $category->id) }}" class='btn btn-default btn-xs'>
                                                     <i class="glyphicon glyphicon-edit"></i>
                                                 </a>
                                                 <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure?')">
@@ -56,23 +56,14 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endfor
+                                @endforeach
                             @endif
                             </tbody>
                         </table>
                     </div>
                     <div class="box-footer clearfix">
                         <div class="pagination-sm no-margin pull-right">
-                            <ul class="pagination">
-                                <li class="disabled"><span>&laquo;</span></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="disabled"><span>...</span></li>
-                                <li><a href="#">13</a></li>
-                                <li><a href="#">14</a></li>
-                                <li><a href="#" rel="next">&raquo;</a></li>
-                            </ul>
+                            {{ $categories->links() }}
                         </div>
                     </div>
                 </div>

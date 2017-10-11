@@ -35,24 +35,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @if(0)
+                            @if(count($stories) === 0)
                                 <td colspan="2">List of stories is empty!</td>
                             @else
-                                @for ($i = 0; $i < 10; $i++)
+                                @foreach ($stories as $key => $story)
                                 <tr>
-                                    <td>loremipsum</td>
-                                    <td>Lorem Ipsum</td>
-                                    <td>example@email.com</td>
-                                    <td>Admin</td>
+                                    <td>{{ $story->title }}</td>
+                                    <td>{{ $story->categories->name }}</td>
+                                    <td>{{ $story->author }}</td>
+                                    <td>{{ $story->users->name }}</td>
                                     <td class="text-center">
-                                        <form method="POST" action="{{ route('stories.destroy', 1) }}" accept-charset="UTF-8">
+                                        <form method="POST" action="{{ route('stories.destroy', $story->id) }}" accept-charset="UTF-8">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <div class='btn-group'>
-                                                <a href="{{ route('stories.show', 1) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('stories.show', $story->id) }}" class='btn btn-default btn-xs'>
                                                     <i class="glyphicon glyphicon-eye-open"></i>
                                                 </a>
-                                                <a href="{{ route('stories.edit', 1) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('stories.edit', $story->id) }}" class='btn btn-default btn-xs'>
                                                     <i class="glyphicon glyphicon-edit"></i>
                                                 </a>
                                                 <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure?')">
@@ -62,23 +62,14 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endfor
+                                @endforeach
                             @endif
                             </tbody>
                         </table>
                     </div>
                     <div class="box-footer clearfix">
                         <div class="pagination-sm no-margin pull-right">
-                            <ul class="pagination">
-                                <li class="disabled"><span>&laquo;</span></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="disabled"><span>...</span></li>
-                                <li><a href="#">13</a></li>
-                                <li><a href="#">14</a></li>
-                                <li><a href="#" rel="next">&raquo;</a></li>
-                            </ul>
+                            {{ $stories->links() }}
                         </div>
                     </div>
                 </div>

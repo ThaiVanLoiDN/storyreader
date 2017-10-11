@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Stories;
 
 class StoryController extends Controller
 {
@@ -14,7 +15,8 @@ class StoryController extends Controller
      */
     public function index()
     {
-        return view('backend.stories.index');
+        $stories = Stories::paginate(10);
+        return view('backend.stories.index', compact('stories'));
     }
 
     /**
