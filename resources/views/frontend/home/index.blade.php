@@ -96,7 +96,9 @@
                         <span class="highlight">are here</span>
                     </h1>
                     <p class="intro-text wow animated slideInUp">Let's Search and enjoy!!!</p>
-                    <input class="button" placeholder="Search..." />
+                    <form action="{{ route('frontend.search.search') }}" method="get">
+                        <input class="button" placeholder="Search..." name="title" />
+                    </form>
                     <br>
                     <br>
                     <a>You don't know what to read! Click here and let's us help you!!!</a>

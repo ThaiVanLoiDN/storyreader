@@ -1,9 +1,9 @@
 <aside class="sidebar site-block">
     <!-- Search -->
     <div class="sidebar-block">
-        <form action="blog.html" method="post" onsubmit="return false;">
+        <form action="{{ route('frontend.search.search') }}" method="get">
             <div class="input-group">
-                <input type="text" id="search-term" name="searh-term" class="form-control" placeholder="Search..">
+                <input type="text" id="title" name="title" class="form-control" placeholder="Search..">
                 <div class="input-group-btn">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </div>
