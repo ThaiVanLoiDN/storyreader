@@ -24,6 +24,8 @@ Route::group(['namespace' => 'FrontEnd'], function(){
 	
 	Route::get('{slug}-{id}.preview', 'StoryController@preview')->name('frontend.story.preview');
 	Route::get('{slug}-{id}.html', 'StoryController@show')->name('frontend.story.show');
+
+	Route::get('search', 'SearchController@search')->name('frontend.search.search');
 });
 
 Route::group(['namespace' => 'BackEnd', 'prefix' => 'admin'], function(){
