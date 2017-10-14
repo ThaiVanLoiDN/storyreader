@@ -1,8 +1,8 @@
 @extends('frontend.layouts.master')
 
 @section('intro')
-	<h1 class="animation-slideDown"><strong>Latest News</strong></h1>
-	<h2 class="h3 animation-slideUp">Learn about our progress and offers!</h2>
+	<h1 class="animation-slideDown"><strong>Integer fermentum tincidunt auctor</strong></h1>
+	<h2 class="h3 animation-slideUp">Ut egestas tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum!</h2>
 @stop
 
 @section('content')
@@ -11,8 +11,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor.</p>
     <p>Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum. Donec vitae ultrices dolor?</p>
 
-
-
+    <iframe src="/storage/stories-pdf/story_1.pdf" style="width:100%; height:1000px;" frameborder="0"></iframe>
 
 
 
@@ -20,7 +19,6 @@
 
 
 </article>
-    <embed src="{{ asset('storage/stories-pdf/story_1.pdf') }}" type="application/pdf" width="100%" height="100%">
 <!-- END Story -->
 <hr>
 <div class="row">

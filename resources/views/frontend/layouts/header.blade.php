@@ -5,10 +5,10 @@
     <head>
         <meta charset="utf-8">
 
-        <title>ProUI Frontend - Responsive Bootstrap Site Template</title>
+        <title>Story Reader</title>
 
-        <meta name="description" content="ProUI Frontend is a Responsive Bootstrap Site Template created by pixelcave and added as a bonus in ProUI Admin Template package which is published on Themeforest.">
-        <meta name="author" content="pixelcave">
+        <meta name="description" content="Story Reader">
+        <meta name="author" content="Story Reader">
         <meta name="robots" content="noindex, nofollow">
 
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">

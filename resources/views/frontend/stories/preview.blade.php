@@ -1,8 +1,8 @@
 @extends('frontend.layouts.master')
 
 @section('intro')
-    <h1 class="animation-slideDown"><strong>Latest News</strong></h1>
-    <h2 class="h3 animation-slideUp">Learn about our progress and offers!</h2>
+    <h1 class="animation-slideDown"><strong> Proin ac nibh rutrum lectus rhoncus eleifend</strong></h1>
+    <h2 class="h3 animation-slideUp">Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. </h2>
 @stop
 
 @section('content')

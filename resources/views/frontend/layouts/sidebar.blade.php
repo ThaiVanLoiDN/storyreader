@@ -14,25 +14,17 @@
 
     <!-- Categories -->
     <div class="sidebar-block">
-        <h4 class="site-heading"><strong>News</strong> Categories</h4>
-        <ul class="fa-ul ul-breath">
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Updates</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Special Offers</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Products</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Features</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Articles</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Tutorials</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.category.show', ['slug' => 'a', 'id' => 1]) }}">Guides</a></li>
-        </ul>
+        <h4 class="site-heading">Categories</h4>
+        {!! ListCategory::list() !!}
     </div>
     <!-- END Categories -->
 
     <!-- Popular and Recent -->
     <div class="sidebar-block">
-        <h4 class="site-heading"><strong>Best</strong> Articles</h4>
+        <h4 class="site-heading"><strong>Best</strong> Stories</h4>
         <ul class="nav nav-tabs push-bit" data-toggle="tabs">
-            <li class="active"><a href="#posts-popular"><i class="fa fa-trophy"></i> Popular</a></li>
-            <li><a href="#posts-recent"><i class="fa fa-clock-o"></i> Recent</a></li>
+            <li class="active"><a href="#posts-popular"><i class="fa fa-trophy"></i> Hot Stories</a></li>
+            <li><a href="#posts-recent"><i class="fa fa-clock-o"></i> New Stories</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="posts-popular">
