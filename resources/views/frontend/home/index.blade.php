@@ -46,11 +46,10 @@
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header pull-left">
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="{{ route('frontend.home.all') }}">
                     <!-- replace with your brand logo/text -->
                     <span class="brand-logo">
-                        <img src="{{ asset('images/logo2.png') }}" onerror="this.src='{{ asset('images/logo2.png') }}'; this.onerror=null;" alt="Hallooou - HTML5 Template"
-                            title="Hallooou - HTML5 Template" class="img-responsive">
+                        <img src="{{ asset('images/logo2.png') }}" onerror="this.src='{{ asset('images/logo2.png') }}'; this.onerror=null;" alt="All the stories" title="All the stories" class="img-responsive">
                     </span>
                 </a>
             </div>
