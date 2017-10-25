@@ -30,7 +30,7 @@
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Categories</a>
-                    {!! ListCategory::list() !!}
+                    {!! ListCategory::showList() !!}
                 </li>
             </ul>
             <!-- END Main Menu -->

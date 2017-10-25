@@ -5,7 +5,7 @@ use App\Models\Categories;
 
 class ListCategory
 {
-    public static function list ()
+    public static function showList ()
     {
         $categories = Categories::all();
         

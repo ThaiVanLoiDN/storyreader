@@ -15,7 +15,7 @@
     <!-- Categories -->
     <div class="sidebar-block">
         <h4 class="site-heading">Categories</h4>
-        {!! ListCategory::list() !!}
+        {!! ListCategory::showList() !!}
     </div>
     <!-- END Categories -->
 
