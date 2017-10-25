@@ -20,14 +20,14 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    <form method="POST" action="{{ route('categories.update', 1) }}" accept-charset="UTF-8" id="categories">
+                    <form method="POST" action="{{ route('categories.update', $category->id) }}" accept-charset="UTF-8" id="categories">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
                             <!-- Name Field -->
                             <div class="col-sm-12">
                                 <label for="name">Name:</label>
-                                <input class="form-control" name="name" type="text" id="name" value="Lorem Ipsum">
+                                <input class="form-control" name="name" type="text" id="name" value="{{ $category->name }}">
                             </div>
                             <div class="clearfix"></div>
                         </div>

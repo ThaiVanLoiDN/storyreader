@@ -13,11 +13,6 @@
 
     <iframe src="/storage/stories-pdf/story_1.pdf" style="width:100%; height:1000px;" frameborder="0"></iframe>
 
-
-
-
-
-
 </article>
 <!-- END Story -->
 <hr>
