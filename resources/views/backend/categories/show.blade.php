@@ -14,26 +14,26 @@
                     <!-- Id Field -->
                     <div class="form-group col-sm-6">
                         <label for="id">Id:</label>
-                        <p>1</p>
+                        <p>{{ $category->id }}</p>
                     </div>
 
                     <!-- Name Field -->
                     <div class="form-group col-sm-6">
                         <label for="name">Name:</label>
-                        <p>Lorem Ipsum</p>
+                        <p>{{ $category->name }}</p>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- Created At Field -->
                     <div class="form-group col-sm-6">
                         <label for="created_at">Created At:</label>
-                        <p>16-05-2017</p>
+                        <p>{{ $category->created_at }}</p>
                     </div>
 
                     <!-- Updated At Field -->
                     <div class="form-group col-sm-6">
                         <label for="updated_at">Updated At:</label>
-                        <p>21-05-2017</p>
+                        <p>{{ $category->updated_at }}</p>
                     </div>
                     <div class="clearfix"></div>
 

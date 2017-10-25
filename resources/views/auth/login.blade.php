@@ -33,7 +33,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form method="post" action="{{ url('/login') }}">
+        <form method="post" action="{{ route('login') }}">
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -60,7 +60,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="remember"> Remember Me
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                         </label>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
             </div>
         </form>
 
-        <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
+        <a href="{{ route('password.request') }}">I forgot my password</a><br>
 
     </div>
     <!-- /.login-box-body -->

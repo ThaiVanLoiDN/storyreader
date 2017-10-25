@@ -5,9 +5,18 @@ namespace App\Http\Controllers\BackEnd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Business\CategoriesBusiness;
 
 class CategoryController extends Controller
 {
+
+    private $_categoriesBusiness;
+
+    public function __construct (CategoriesBusiness $categoriesBusiness)
+    {
+        $this->_categoriesBusiness = $categoriesBusiness;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +46,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('categories.index')->with('success', 'Category saved successfully.');
+        $result = $this->_categoriesBusiness->create($request);
+
+        if ($result) {
+            return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        }else{
+            return redirect()->route('categories.index')->with('fail', 'Category created fail.');
+        }
     }
 
     /**
@@ -48,7 +63,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('backend.categories.show');
+        $category = Categories::findOrFail($id);
+
+        return view('backend.categories.show', compact('category'));
     }
 
     /**
@@ -59,7 +76,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.categories.edit');
+        $category = Categories::findOrFail($id);
+
+        return view('backend.categories.edit', compact('category'));
     }
 
     /**
@@ -71,7 +90,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        $result = $this->_categoriesBusiness->update($request, $id);
+
+        if ($result) {
+            return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        }else{
+            return redirect()->route('categories.index')->with('fail', 'Category updated fail.');
+        }
     }
 
     /**
@@ -82,6 +107,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        $category = Categories::findOrFail($id);
+        $result = $category->delete();
+
+        if ($result) {
+            return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        }else{
+            return redirect()->route('categories.index')->with('fail', 'Category deleted fail.');
+        }
     }
 }

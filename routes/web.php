@@ -28,7 +28,7 @@ Route::group(['namespace' => 'FrontEnd'], function(){
 	Route::get('search', 'SearchController@search')->name('frontend.search.search');
 });
 
-Route::group(['namespace' => 'BackEnd', 'prefix' => 'admin'], function(){
+Route::group(['namespace' => 'BackEnd', 'prefix' => 'manage', 'middleware' => 'auth'], function(){
 
 	Route::get('/', 'HomeController@index')->name('home.index');
 	
@@ -36,3 +36,6 @@ Route::group(['namespace' => 'BackEnd', 'prefix' => 'admin'], function(){
 	Route::resource('stories', 'StoryController');
 	Route::resource('categories', 'CategoryController');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

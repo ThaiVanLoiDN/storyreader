@@ -11,22 +11,22 @@
 
     <ul class="sidebar-menu" id="list_pages">
 
-        <li class="{{ Request::is('admin/index*')? 'active' : '' }}">
+        <li class="{{ Request::is('manage/index*')? 'active' : '' }}">
             <a href="{{ route('home.index') }}">
                 <i class="fa fa-home"></i> <span>Dashboard</span>
             </a>
         </li>
-        <li class="{{ Request::is('admin/categories*')? 'active' : '' }}">
+        <li class="{{ Request::is('manage/categories*')? 'active' : '' }}">
             <a href="{{ route('categories.index') }}">
                 <i class="fa fa-folder-o"></i> <span>Categories</span>
             </a>
         </li>
-        <li class="{{ Request::is('admin/stories*')? 'active' : '' }}">
+        <li class="{{ Request::is('manage/stories*')? 'active' : '' }}">
             <a href="{{ route('stories.index') }}">
                 <i class="fa fa-folder-o"></i> <span>Stories</span>
             </a>
         </li>
-        <li class="{{ Request::is('admin/users*')? 'active' : '' }}">
+        <li class="{{ Request::is('manage/users*')? 'active' : '' }}">
             <a href="{{ route('users.index') }}">
                 <i class="fa fa-user"></i> <span>Users</span>
             </a>
