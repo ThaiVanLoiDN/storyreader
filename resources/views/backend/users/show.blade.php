@@ -14,26 +14,19 @@
                     <!-- Id Field -->
                     <div class="form-group col-sm-6">
                         <label for="id">Id:</label>
-                        <p>1</p>
+                        <p>{{$user->id}}</p>
                     </div>
-
-                    <!-- Username Field -->
-                    <div class="form-group col-sm-6">
-                        <label for="username">Username:</label>
-                        <p>loremipsum</p>
-                    </div>
-                    <div class="clearfix"></div>
 
                     <!-- Fullname Field -->
                     <div class="form-group col-sm-6">
                         <label for="fullrname">Fullrname:</label>
-                        <p>Lorem Ipsum</p>
+                        <p>{{$user->name}}</p>
                     </div>
 
                     <!-- Email Field -->
                     <div class="form-group col-sm-6">
                         <label for="email">Email:</label>
-                        <p>example@email.com</p>
+                        <p>{{$user->email}}</p>
                     </div>
                     <div class="clearfix"></div>
 
@@ -41,7 +34,7 @@
                     <div class="form-group col-sm-6">
                         <label for="image">Image:</label>
                         <p>
-                            <img src="{{ asset('storage/avatars/avatar.png') }}" alt="" class="img-responsive" width="150px" height="auto">
+                            <img src="{{ asset('storage/avatars/' . $user->image) }}" alt="" class="img-responsive" width="150px" height="auto">
                         </p>
                     </div>
 

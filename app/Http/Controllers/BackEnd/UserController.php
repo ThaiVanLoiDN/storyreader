@@ -4,9 +4,18 @@ namespace App\Http\Controllers\BackEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Business\UserBusiness;
 
 class UserController extends Controller
 {
+    private $_userBusiness;
+    
+    public function __construct (UserBusiness $userBusiness)
+    {
+        $this->_userBusiness = $userBusiness;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backend.users.index');
+        $users = User::paginate(10);
+        return view('backend.users.index', compact('users'));
     }
 
     /**
@@ -35,7 +45,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('users.index')->with('success', 'User saved successfully.');
+        $result = $this->_userBusiness->create($request);
+        
+        if ($result) {
+            return redirect()->route('users.index')->with('success', 'User created successfully.');
+        }else{
+            return redirect()->route('users.index')->with('fail', 'User created fail.');
+        }
     }
 
     /**
@@ -46,7 +62,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('backend.users.show');
+        $user = User::findOrFail($id);
+        return view('backend.users.show', compact('user'));
     }
 
     /**
@@ -57,7 +74,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.users.edit');
+        $user = User::findOrFail($id);
+        return view('backend.users.edit', compact('user'));
     }
 
     /**
@@ -69,7 +87,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        $result = $this->_userBusiness->update($request, $id);
+        
+        if ($result) {
+            return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        }else{
+            return redirect()->route('users.index')->with('fail', 'User updated fail.');
+        }
     }
 
     /**
@@ -80,6 +104,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        $user = User::findOrFail($id);
+        $result = $user->delete();
+
+        if ($result) {
+            return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        }else{
+            return redirect()->route('users.index')->with('fail', 'User deleted fail.');
+        }
     }
 }

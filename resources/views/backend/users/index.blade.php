@@ -27,7 +27,6 @@
                         <table class="table table-responsive table-bordered" id="tours-table">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
                                     <th>Fullname</th>
                                     <th>Email</th>
                                     <th>Role</th>
@@ -38,21 +37,26 @@
                             @if(0)
                                 <td colspan="2">List of users is empty!</td>
                             @else
-                                @for ($i = 0; $i < 10; $i++)
+                                @foreach ($users as $key => $user)
                                 <tr>
-                                    <td>loremipsum</td>
-                                    <td>Lorem Ipsum</td>
-                                    <td>example@email.com</td>
-                                    <td>Admin</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>
+                                        @if($user->role == 2)
+                                            Administrator
+                                        @else
+                                            Moderator
+                                        @endif
+                                    </td>
                                     <td class="text-center">
-                                        <form method="POST" action="{{ route('users.destroy', 1) }}" accept-charset="UTF-8">
+                                        <form method="POST" action="{{ route('users.destroy', $user->id) }}" accept-charset="UTF-8">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <div class='btn-group'>
-                                                <a href="{{ route('users.show', 1) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('users.show', $user-> id) }}" class='btn btn-default btn-xs'>
                                                     <i class="glyphicon glyphicon-eye-open"></i>
                                                 </a>
-                                                <a href="{{ route('users.edit', 1) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('users.edit', $user-> id) }}" class='btn btn-default btn-xs'>
                                                     <i class="glyphicon glyphicon-edit"></i>
                                                 </a>
                                                 <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure?')">
@@ -62,23 +66,14 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endfor
+                                @endforeach
                             @endif
                             </tbody>
                         </table>
                     </div>
                     <div class="box-footer clearfix">
                         <div class="pagination-sm no-margin pull-right">
-                            <ul class="pagination">
-                                <li class="disabled"><span>&laquo;</span></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="disabled"><span>...</span></li>
-                                <li><a href="#">13</a></li>
-                                <li><a href="#">14</a></li>
-                                <li><a href="#" rel="next">&raquo;</a></li>
-                            </ul>
+                            {{ $users->links() }}
                         </div>
                     </div>
                 </div>
