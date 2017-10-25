@@ -5,9 +5,17 @@ namespace App\Http\Controllers\BackEnd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Stories;
+use App\Business\StoriesBusiness;
 
 class StoryController extends Controller
 {
+
+    private $_storiesBusiness;
+
+    public function __construct (StoriesBusiness $storiesBusiness){
+        $this->_storiesBusiness = $storiesBusiness;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +45,14 @@ class StoryController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('stories.index')->with('success', 'Story saved successfully.');
+        $result = $this->_storiesBusiness->create($request);
+
+        if ($result) {
+            return redirect()->route('stories.index')->with('success', 'Story created successfully.');
+        }
+        else{
+            return redirect()->route('stories.index')->with('fail', 'Story created failed.');
+        }        
     }
 
     /**
@@ -48,7 +63,9 @@ class StoryController extends Controller
      */
     public function show($id)
     {
-        return view('backend.stories.show');
+        $story = Stories::findOrFail($id);
+
+        return view('backend.stories.show',compact('story'));
     }
 
     /**
@@ -59,7 +76,9 @@ class StoryController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.stories.edit');
+        $story = Stories::findOrFail($id);
+
+        return view('backend.stories.edit',compact('story'));
     }
 
     /**
@@ -71,7 +90,14 @@ class StoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->route('stories.index')->with('success', 'Story updated successfully.');
+        $result = $this->_storiesBusiness->update($request, $id);
+
+        if ($result) {
+            return redirect()->route('stories.index')->with('success', 'Story updated successfully.');
+        }
+        else{
+            return redirect()->route('stories.index')->with('fail', 'Story updated failed.');
+        }    
     }
 
     /**
@@ -82,6 +108,13 @@ class StoryController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->route('stories.index')->with('success', 'Story deleted successfully.');
+        $story = Stories::findOrFail($id);
+        $result = $story->delete();
+        if ($result) {
+            return redirect()->route('stories.index')->with('success', 'Story deleted successfully.');
+        }
+        else{
+            return redirect()->route('stories.index')->with('fail', 'Story deleted failed.');
+        }
     }
 }

@@ -31,7 +31,7 @@
                             <!-- Category Field -->
                             <div class="col-sm-6">
                                 <label for="category">Category:</label>
-                                <select class="form-control select2" style="width: 100%" name="role">
+                                <select class="form-control select2" style="width: 100%" name="category_id">
                                     <option value="2">Anime</option>
                                     <option value="1">Manga Chinese</option>
                                 </select>

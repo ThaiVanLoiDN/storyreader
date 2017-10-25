@@ -20,19 +20,19 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    <form method="POST" action="{{ route('stories.update', 1) }}" accept-charset="UTF-8" id="stories">
+                    <form method="POST" action="{{ route('stories.update', $story->id) }}" accept-charset="UTF-8" id="stories">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
                             <!-- Title Field -->
                             <div class="col-sm-6">
                                 <label for="title">Title:</label>
-                                <input class="form-control" name="title" type="text" id="title" value="Minima consectetur praesentium obcaecati dolor eu adipisicing iure nobis occaecat aut non hic">
+                                <input class="form-control" name="title" type="text" id="title" value="{{$story->title}}">
                             </div>
                             <!-- Category Field -->
                             <div class="col-sm-6">
                                 <label for="category">Category:</label>
-                                <select class="form-control select2" style="width: 100%" name="role">
+                                <select class="form-control select2" style="width: 100%" name="category_id">
                                     <option value="2">Anime</option>
                                     <option value="1" selected="selected">Manga Chinese</option>
                                 </select>
@@ -44,7 +44,7 @@
                             <!-- Author Field -->
                             <div class="col-sm-6">
                                 <label for="author">Author:</label>
-                                <input class="form-control" name="author" type="text" id="author" value="Ab in modi necessitatibus">
+                                <input class="form-control" name="author" type="text" id="author" value="{{$story->author}}">
                             </div>
                             <!-- File Field -->
                             <div class="col-sm-6">
@@ -69,7 +69,7 @@
                             <!-- Preview Field -->
                             <div class="col-sm-12">
                                 <label for="preview">Preview:</label>
-                                <textarea class="form-control" name="preview" id="preview" rows="3" placeholder="Preview the story ...">Id cupiditate quidem sed aliquip molestiae rerum possimus cumque fugiat autem id quis aspernatur non laboriosam labore</textarea>
+                                <textarea class="form-control" name="preview" id="preview" rows="3" placeholder="Preview the story ...">{{$story->preview}}</textarea>
                             </div>
                             <div class="clearfix"></div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Stories;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function all(){
-    	return view('frontend.home.all');
+        $stories = Stories::paginate(10);
+    	return view('frontend.home.all', compact('stories'));
     }
 }
