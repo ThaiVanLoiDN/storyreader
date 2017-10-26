@@ -4,6 +4,8 @@ namespace App\Http\Controllers\FrontEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
+use App\Models\Stories;
 
 class CategoryController extends Controller
 {
@@ -13,8 +15,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug, $id)
     {
-    	return view('frontend.categories.show');
+        $category = Categories::findOrFail($id);
+        $listStories = Stories::where('category_id', $id)->paginate(10);
+    	return view('frontend.categories.show', compact('listStories','category'));
     }
 }
