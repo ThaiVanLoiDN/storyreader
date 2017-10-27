@@ -108,6 +108,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Categories::findOrFail($id);
+
+        $this->_categoriesBusiness->deleteStories($id);
         $result = $category->delete();
 
         if ($result) {

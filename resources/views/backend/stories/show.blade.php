@@ -14,26 +14,26 @@
                     <!-- Id Field -->
                     <div class="form-group col-sm-6">
                         <label for="id">Id:</label>
-                        <p>1</p>
+                        <p>{{ $story->id }}</p>
                     </div>
 
                     <!-- Username Field -->
                     <div class="form-group col-sm-6">
                         <label for="title">Title:</label>
-                        <p>Minima consectetur praesentium obcaecati dolor eu adipisicing iure nobis occaecat aut non hic</p>
+                        <p>{{ $story->title }}</p>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- Fullname Field -->
                     <div class="form-group col-sm-6">
                         <label for="author">Author:</label>
-                        <p>Ab in modi necessitatibus</p>
+                        <p><p>{{ $story->author }}</p>
                     </div>
 
                     <!-- Email Field -->
                     <div class="form-group col-sm-6">
                         <label for="category">Category:</label>
-                        <p>Manga Chinese</p>
+                        <p><p>{{ $story->categories->name }}</p>
                     </div>
                     <div class="clearfix"></div>
 
@@ -41,34 +41,34 @@
                     <div class="form-group col-sm-6">
                         <label for="image">Image:</label>
                         <p>
-                            <img src="{{ asset('storage/stories/noimage.png') }}" alt="" class="img-responsive" width="150px" height="auto" style="border: 1px solid #cccccc">
+                            <img src="{{ asset('storage/stories/' . $story->image) }}" alt="" class="img-responsive" width="150px" height="auto" style="border: 1px solid #cccccc">
                         </p>
                     </div>
 
                     <!-- Upload by Field -->
                     <div class="form-group col-sm-6">
                         <label for="upload_by">Upload by:</label>
-                        <p>Admin</p>
+                        <p>{{ $story->users->name }}</p>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- File Field -->
                     <div class="form-group col-sm-6">
                         <label for="file">File:</label>
-                        <p><a href="">Minima consectetur praesentium obcaecati dolor eu adipisicing iure nobis occaecat aut non hic</a></p>
+                        <p><a href="{{ asset('storage/stories/' . $story->file) }}" target="_blank">{{ $story->title }}</a></p>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- Created At Field -->
                     <div class="form-group col-sm-6">
                         <label for="created_at">Created At:</label>
-                        <p>16-05-2017</p>
+                        <p>{{ $story->created_at }}</p>
                     </div>
 
                     <!-- Updated At Field -->
                     <div class="form-group col-sm-6">
                         <label for="updated_at">Updated At:</label>
-                        <p>21-05-2017</p>
+                        <p>{{ $story->updated_at }}</p>
                     </div>
                     <div class="clearfix"></div>
 
