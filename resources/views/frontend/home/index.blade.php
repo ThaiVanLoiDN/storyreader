@@ -64,7 +64,7 @@
                 <nav class="overlay-menu">
                     <ul>
                         <li>
-                            <a href="#about">All the story</a>
+                            <a href="{{ route('frontend.home.all') }}">All the story</a>
                         </li>
                         @foreach ($categories as $key => $category)
                             

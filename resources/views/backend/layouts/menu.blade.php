@@ -5,14 +5,14 @@
     <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="{{ url("storage/avatars/avatar.png") }}" class="user-image" alt="User Image">
-                <span class="hidden-xs">Administrator</span>
+                <img src="{{ url('storage/avatars/' . Auth::user()->image ) }}" class="user-image" alt="User Image">
+                <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
                 <li class="user-header">
-                    <img src="{{ url("storage/avatars/avatar.png") }}" class="img-circle" alt="User Image">
+                    <img src="{{ url('storage/avatars/' . Auth::user()->image ) }}" class="img-circle" alt="User Image">
                     <p>
-                        Administrator
+                        {{ Auth::user()->name }}
                     </p>
                 </li>
                 <li class="user-footer">

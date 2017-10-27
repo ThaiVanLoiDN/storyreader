@@ -24,7 +24,7 @@ class StoryController extends Controller
      */
     public function index()
     {
-        $stories = Stories::paginate(10);
+        $stories = Stories::orderBy('id', 'DESC')->paginate(15);
         return view('backend.stories.index', compact('stories'));
     }
 
@@ -48,8 +48,6 @@ class StoryController extends Controller
     public function store(Request $request)
     {
         $result = $this->_storiesBusiness->create($request);
-
-        dd($result);
 
         if ($result) {
             return redirect()->route('stories.index')->with('success', 'Story created successfully.');

@@ -25,7 +25,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function all(){
-        $stories = Stories::paginate(10);
+        $stories = Stories::orderBy('id', 'DESC')->paginate(10);
     	return view('frontend.home.all', compact('stories'));
     }
 }

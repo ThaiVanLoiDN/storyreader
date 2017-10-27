@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function show($slug, $id)
     {
         $category = Categories::findOrFail($id);
-        $listStories = Stories::where('category_id', $id)->paginate(10);
+        $listStories = Stories::where('category_id', $id)->orderBy('id', 'DESC')->paginate(10);
     	return view('frontend.categories.show', compact('listStories','category'));
     }
 }

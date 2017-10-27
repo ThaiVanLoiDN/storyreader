@@ -16,7 +16,7 @@ class SearchController extends Controller
     public function search(Request $request){
     	
 		$title = $request->title;
-        $stories = Stories::where('title', 'like', '%' . $title . '%')->limit(10)->get();
+        $stories = Stories::where('title', 'like', '%' . $title . '%')->orderBy('id', 'DESC')->limit(10)->get();
 
     	return view('frontend.search.search', compact('title', 'stories'));
     }

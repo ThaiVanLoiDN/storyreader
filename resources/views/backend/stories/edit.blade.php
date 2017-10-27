@@ -47,7 +47,7 @@
                             <!-- Author Field -->
                             <div class="col-sm-6">
                                 <label for="author">Author:</label>
-                                <input class="form-control" name="author" type="text" id="author" value="{{$story->author}}">
+                                <input class="form-control" name="author" type="text" id="author" value="{{ $story->author }}">
                             </div>
                             <!-- File Field -->
                             <div class="col-sm-6">
@@ -63,7 +63,7 @@
                                 <label for="image">Image:</label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImg(this)">
                                 <br>
-                                <p><img src="{{ asset('storage/stories/noimage.png') }}" alt="" class="img-responsive" width="150px" height="auto" style="border: 1px solid #cccccc"></p>
+                                <p><img src="{{ asset('storage/stories/' . $story->image) }}" alt="" class="img-responsive" width="150px" height="auto" style="border: 1px solid #cccccc"></p>
                             </div>
                             <div class="clearfix"></div>
                         </div>

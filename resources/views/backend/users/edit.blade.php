@@ -74,7 +74,7 @@
                                 <label for="image">Image:</label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImg(this)">
                                 <br>
-                                <p><img id="avartar-img-show" src="{{ asset('storage/avatars/avatar.png') }}" alt="avatar" class="img-responsive" width="200px" height="auto"></p>
+                                <p><img id="avartar-img-show" src="{{ asset('storage/avatars/' . $user->image) }}" alt="avatar" class="img-responsive" width="200px" height="auto"></p>
                             </div>
                             <div class="clearfix"></div>
                         </div>

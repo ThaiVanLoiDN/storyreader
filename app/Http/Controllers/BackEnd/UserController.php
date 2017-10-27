@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Business\UserBusiness;
+use Auth;
 
 class UserController extends Controller
 {
@@ -105,6 +106,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+        $this->_userBusiness->deleteStories($id);
         $result = $user->delete();
 
         if ($result) {

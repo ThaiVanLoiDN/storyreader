@@ -31,7 +31,7 @@ Route::group(['namespace' => 'FrontEnd'], function(){
 
 Route::group(['namespace' => 'BackEnd', 'prefix' => 'manage', 'middleware' => 'auth'], function(){
 
-	Route::get('/', 'HomeController@index')->name('home.index');
+	Route::get('/', 'StoryController@index')->name('home.index');
 	
 	Route::resource('users', 'UserController');
 	Route::resource('stories', 'StoryController');
