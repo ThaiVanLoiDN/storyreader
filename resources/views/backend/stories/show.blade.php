@@ -55,7 +55,7 @@
                     <!-- File Field -->
                     <div class="form-group col-sm-6">
                         <label for="file">File:</label>
-                        <p><a href="{{ asset('storage/stories/' . $story->file) }}" target="_blank">{{ $story->title }}</a></p>
+                        <p><a href="{{ asset('storage/stories-pdf/' . $story->file) }}" target="_blank">{{ $story->title }}</a></p>
                     </div>
                     <div class="clearfix"></div>
 

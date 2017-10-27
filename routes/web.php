@@ -11,6 +11,7 @@
 |
 */
 
+Route::pattern('slug', '(.*)');
 Route::pattern('id', '[0-9]+');
 
 Auth::routes();

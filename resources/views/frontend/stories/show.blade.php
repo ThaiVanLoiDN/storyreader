@@ -1,43 +1,26 @@
 @extends('frontend.layouts.master')
 
 @section('intro')
-	<h1 class="animation-slideDown"><strong>Integer fermentum tincidunt auctor</strong></h1>
-	<h2 class="h3 animation-slideUp">Ut egestas tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum!</h2>
+	<h1 class="animation-slideDown"><strong>{{ $story->title }}</strong></h1>
 @stop
 
 @section('content')
 <!-- Story -->
 <article>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor.</p>
-    <p>Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum. Donec vitae ultrices dolor?</p>
+    <p>{{ $story->preview }}</p>
 
-    <iframe src="/storage/stories-pdf/story_1.pdf" style="width:100%; height:1000px;" frameborder="0"></iframe>
+    <iframe src="{{ asset('storage/stories-pdf/' . $story->file) }}" style="width:100%; height:1000px;" frameborder="0"></iframe>
 
 </article>
 <!-- END Story -->
 <hr>
 <div class="row">
-	<div class="col-md-6 site-block">
-        <h3 class="site-heading"><strong>About</strong> the Author</h3>
-        <ul class="media-list">
-            <li class="media">
-                <a href="javascript:void(0)" class="pull-left">
-                    <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar" class="img-circle">
-                </a>
-                <div class="media-body">
-                    <a href="javascript:void(0)"><strong>John</strong> Doe</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta.</p>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-6 site-block">
+    <div class="col-md-12 site-block">
         <h3 class="site-heading"><strong>Read</strong> More</h3>
         <ul class="fa-ul ul-breath">
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Best trip of my life</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Travelling by train across the country</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">My next big trip</a></li>
-            <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">I would like to travel more</a></li>
+            @foreach ($otherStories as $key => $otherStory)
+            <li><i class="fa fa-angle-right fa-li"></i> <a href="{{ route('frontend.story.show', ['slug' => str_slug($otherStory->title), 'id' => $otherStory->id]) }}">{{ $otherStory->title }}</a></li>
+            @endforeach
         </ul>
     </div>
 </div>

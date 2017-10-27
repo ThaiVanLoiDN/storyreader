@@ -18,7 +18,10 @@ class CreateStoriesTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('file');
-            $table->string('image');
+            $table->string('image')->default('noimage.png');
+            $table->integer('view')->unsigned()->default(0);
+            $table->integer('count_vote')->unsigned()->default(0);
+            $table->integer('sum_vote')->unsigned()->default(0);
             $table->text('preview');
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
