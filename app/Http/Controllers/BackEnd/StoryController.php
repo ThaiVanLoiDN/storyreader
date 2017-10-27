@@ -5,6 +5,7 @@ namespace App\Http\Controllers\BackEnd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Stories;
+use App\Models\Categories;
 use App\Business\StoriesBusiness;
 
 class StoryController extends Controller
@@ -34,7 +35,8 @@ class StoryController extends Controller
      */
     public function create()
     {
-        return view('backend.stories.create');
+        $categories = Categories::all();
+        return view('backend.stories.create', compact('categories'));
     }
 
     /**
@@ -46,6 +48,8 @@ class StoryController extends Controller
     public function store(Request $request)
     {
         $result = $this->_storiesBusiness->create($request);
+
+        dd($result);
 
         if ($result) {
             return redirect()->route('stories.index')->with('success', 'Story created successfully.');
@@ -77,8 +81,9 @@ class StoryController extends Controller
     public function edit($id)
     {
         $story = Stories::findOrFail($id);
+        $categories = Categories::all();
 
-        return view('backend.stories.edit',compact('story'));
+        return view('backend.stories.edit',compact('story', 'categories'));
     }
 
     /**

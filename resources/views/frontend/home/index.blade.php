@@ -64,14 +64,14 @@
                 <nav class="overlay-menu">
                     <ul>
                         <li>
-                            <a href="#about">About us</a>
+                            <a href="#about">All the story</a>
                         </li>
+                        @foreach ($categories as $key => $category)
+                            
                         <li>
-                            <a href="#services">What we do</a>
+                            <a href="{{ route('frontend.category.show', ['slug'=>str_slug($category->name), 'id' => $category->id]) }}">{{ $category->name }}</a>
                         </li>
-                        <li>
-                            <a href="#products">Why choose us</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </nav>
             </div>
@@ -100,49 +100,13 @@
                     </form>
                     <br>
                     <br>
-                    <a>You don't know what to read! Click here and let's us help you!!!</a>
+                    <a href="{{ route('frontend.home.all') }}" style="font-size: 30px; font-weight: bold; font-style: italic;">You don't know what to read! Click here and let's us help you!!!</a>
                 </div>
                 <div class="overlay-detail"> </div>
             </div>
-
-            <!-- /.item -->
-
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('{{ asset('images/cover-two.jpg') }}');"></div>
-                <div class="carousel-caption">
-                    <h1 class="wow animated slideInDown">
-                        <span class="highlight">Responsive &amp; Retina</span> Ready</h1>
-                    <p class="intro-text wow animated slideInUp">A clean and bold HTML5 template, Halloou is ultra responsive and retina ready.</p>
-                    <a href="http://bit.ly/hh5_template" class="btn btn-default btn-lg">Download theme</a>
-                </div>
-                <div class="overlay-detail"></div>
-            </div>
-            <!-- /.item -->
-
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('{{ asset('images/cover-three.jpg') }}');"></div>
-                <div class="carousel-caption">
-                    <h1 class="wow animated slideInDown">Customizable
-                        <span class="highlight">colors</span> &amp; blocks</h1>
-                    <p class="intro-text wow animated slideInUp">Halloou gives you the freedom to easily change the color of the whole template to match your brand, re-arrange
-                        blocks to suit your needs.</p>
-                    <a href="http://bit.ly/hh5_template" class="btn btn-default btn-lg">Download theme</a>
-                </div>
-                <div class="overlay-detail"></div>
-            </div>
-            <!-- /.item -->
-
+            <!-- /.item -->        
         </div>
         <!-- Controls -->
-        <a class="left carousel-control squared" href="#intro-carousel" data-slide="prev">
-            <i class="fa fa-angle-left fa-2x"></i>
-        </a>
-        <a class="right carousel-control squared" href="#intro-carousel" data-slide="next">
-            <i class="fa fa-angle-right fa-2x"></i>
-        </a>
-        <!-- <div class="mouse"></div> -->
     </header>
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>

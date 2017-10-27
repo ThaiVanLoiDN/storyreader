@@ -20,7 +20,7 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    <form method="POST" action="{{ route('stories.store') }}" accept-charset="UTF-8" id="stories">
+                    <form method="POST" action="{{ route('stories.store') }}" accept-charset="UTF-8" id="stories" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <!-- Title Field -->
@@ -32,8 +32,9 @@
                             <div class="col-sm-6">
                                 <label for="category">Category:</label>
                                 <select class="form-control select2" style="width: 100%" name="category_id">
-                                    <option value="2">Anime</option>
-                                    <option value="1">Manga Chinese</option>
+                                    @foreach ($categories as $key => $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="clearfix"></div>

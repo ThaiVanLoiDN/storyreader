@@ -20,7 +20,7 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    <form method="POST" action="{{ route('users.store') }}" accept-charset="UTF-8" id="users">
+                    <form method="POST" action="{{ route('users.store') }}" accept-charset="UTF-8" id="users" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <!-- Fullname Field -->

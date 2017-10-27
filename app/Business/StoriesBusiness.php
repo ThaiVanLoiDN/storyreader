@@ -10,7 +10,11 @@ class StoriesBusiness
 	public function create($request)
 	{
 		try {
-			$story=new Stories;
+
+			//$image = $request->file('image')->store('public/story-image');
+
+
+			$story = new Stories;
 			$story->title = $request->title;
 			$story->author = $request->author;
 			$story->file = '';
@@ -19,6 +23,9 @@ class StoriesBusiness
 			$story->category_id = $request->category_id;
 			$story->user_id = Auth::id();
 			return $story->save();
+
+			return $image;
+
 		} catch (\Exception $e) {
 			\Log::error("Manage: Create Story error" . $e->getMessage());
 			return false;

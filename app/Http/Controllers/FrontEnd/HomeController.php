@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEnd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Stories;
+use App\Models\Categories;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,8 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-    	return view('frontend.home.index');
+        $categories = Categories::all();
+    	return view('frontend.home.index', compact('categories'));
     }
 
     /**

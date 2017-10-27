@@ -225,7 +225,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'ListCategory' => App\Common\ListCategory::class
+        'ListCategory' => App\Common\ListCategory::class,
+        'ListStory' => App\Common\ListStory::class,
 
     ],
 

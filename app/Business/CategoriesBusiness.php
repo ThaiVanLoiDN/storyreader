@@ -2,6 +2,7 @@
 
 namespace App\Business;
 use App\Models\Categories;
+use App\Models\Stories;
 
 class CategoriesBusiness
 {
@@ -29,6 +30,16 @@ class CategoriesBusiness
 
         } catch (\Exception $e) {
             \Log::error("Manage: Update Category error" . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function deleteStories($id)
+    {
+        try {
+            return Stories::where('category_id', $id)->delete();
+        } catch (Exception $e) {
+            \Log::error("Manage: Delete Stories in Category" . $e->getMessage());
             return false;
         }
     }

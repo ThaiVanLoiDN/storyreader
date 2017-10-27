@@ -28,38 +28,10 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="posts-popular">
-            <div class="content-float clearfix">
-                <img src="img/placeholders/avatars/avatar12.jpg" alt="Avatar" class="img-circle pull-left">
-                <h5><a href="{{ route('frontend.story.preview', ['slug' => 'a', 'id' => 1]) }}"><strong>How to be more productive</strong></a></h5>
-                <small class="text-muted">1 year ago</small>
-            </div>
-            <div class="content-float clearfix">
-                <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle pull-left">
-                <h5><a href="{{ route('frontend.story.preview', ['slug' => 'a', 'id' => 1]) }}"><strong>CSS3 &amp; HTML5 Tutorial</strong></a></h5>
-                <small class="text-muted">6 days ago</small>
-            </div>
-            <div class="content-float clearfix">
-                <img src="img/placeholders/avatars/avatar11.jpg" alt="Avatar" class="img-circle pull-left">
-                <h5><a href="{{ route('frontend.story.preview', ['slug' => 'a', 'id' => 1]) }}"><strong>New updates and more!</strong></a></h5>
-                <small class="text-muted">1 month ago</small>
-            </div>
+            {!! ListStory::showHotStories() !!}
         </div>
         <div class="tab-pane" id="posts-recent">
-            <div class="content-float clearfix">
-                <img src="img/placeholders/avatars/avatar6.jpg" alt="Avatar" class="img-circle pull-left">
-                <h5><a href="{{ route('frontend.story.preview', ['slug' => 'a', 'id' => 1]) }}"><strong>How to push your company forward</strong></a></h5>
-                <small class="text-muted">1 day ago</small>
-            </div>
-            <div class="content-float clearfix">
-                <img src="img/placeholders/avatars/avatar4.jpg" alt="Avatar" class="img-circle pull-left">
-                <h5><a href="{{ route('frontend.story.preview', ['slug' => 'a', 'id' => 1]) }}"><strong>New updates and more!</strong></a></h5>
-                <small class="text-muted">1 week ago</small>
-            </div>
-            <div class="content-float clearfix">
-                <img src="img/placeholders/avatars/avatar16.jpg" alt="Avatar" class="img-circle pull-left">
-                <h5><a href="{{ route('frontend.story.preview', ['slug' => 'a', 'id' => 1]) }}"><strong>How to be more productive</strong></a></h5>
-                <small class="text-muted">2 weeks ago</small>
-            </div>
+            {!! ListStory::showNewStories() !!}
         </div>
     </div>
 </div>
