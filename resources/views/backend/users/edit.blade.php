@@ -20,19 +20,14 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    <form method="POST" action="{{ route('users.update', 1) }}" accept-charset="UTF-8" id="users">
+                    <form method="POST" action="{{ route('users.update', $user->id) }}" accept-charset="UTF-8" id="users">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
-                            <!-- Username Field -->
-                            <div class="col-sm-6">
-                                <label for="username">Username:</label>
-                                <input class="form-control" name="username" type="text" id="username" value="loremipsum">
-                            </div>
                             <!-- Fullname Field -->
                             <div class="col-sm-6">
                                 <label for="fullname">Fullname:</label>
-                                <input class="form-control" name="fullname" type="text" id="fullname" value="Lorem Ipsum">
+                                <input class="form-control" name="name" type="text" id="name" value="{{$user->name}}">
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -55,14 +50,19 @@
                             <!-- Email Field -->
                             <div class="col-sm-6">
                                 <label for="email">Email:</label>
-                                <input class="form-control" name="email" type="email" id="email" value="example@email.com">
+                                <input class="form-control" name="email" type="email" id="email" value="{{$user->email}}">
                             </div>
                             <!-- Role Field -->
                             <div class="col-sm-6">
                                 <label for="email">Role:</label>
                                 <select class="form-control select2" style="width: 100%" name="role">
-                                    <option value="2">Admin</option>
-                                    <option value="1" selected="selected">Mod</option>
+                                    @if($user->role == 2)
+                                        <option value="2"selected="selected">Admin</option>
+                                        <option value="1">Mod</option>
+                                    @else
+                                        <option value="2">Admin</option>
+                                        <option value="1" selected="selected">Mod</option>
+                                    @endif
                                 </select>
                             </div>
                             <div class="clearfix"></div>

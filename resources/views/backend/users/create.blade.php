@@ -23,15 +23,10 @@
                     <form method="POST" action="{{ route('users.store') }}" accept-charset="UTF-8" id="users">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <!-- Username Field -->
-                            <div class="col-sm-6">
-                                <label for="username">Username:</label>
-                                <input class="form-control" name="username" type="text" id="username">
-                            </div>
                             <!-- Fullname Field -->
                             <div class="col-sm-6">
                                 <label for="fullname">Fullname:</label>
-                                <input class="form-control" name="fullname" type="text" id="fullname">
+                                <input class="form-control" name="name" type="text" id="name">
                             </div>
                             <div class="clearfix"></div>
                         </div>
